@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParses = require('body-parser');
 const cors = require('cors');
 const routes = require('./routes/routes');
 
@@ -8,6 +9,8 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.use(cors());
+
+app.use(bodyParses.urlencoded({extended: false}));
 
 app.use('/', routes);
 
