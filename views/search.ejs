@@ -12,26 +12,28 @@
     <div class="container">
       <form class="form-inline" method="post" action="/page/search">
         <div class="form-group">
-          <input type="text" class="form-control" id="searchInput" name="searchInput" placeholder="请输入搜索内容" value="<%= query%>">
+          <input type="text" class="form-control" id="searchInput" name="searchInput" placeholder="Input query text" value="<%= query%>">
         </div>
-        <button type="submit" class="btn btn-primary">搜索</button>
+        <button type="submit" class="btn btn-primary">Search</button>
       </form>
     </div>
+    <% if(err!=null){%>
+    <div>
+      <%= err%>
+    </div>
+    <% }%> 
     
-    <div class="container mt-3">
-      <h1>Search Results</h1>
-      <ul class="list-group">
-        <% for (const item of data) { %>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <div class="me-3">
-            <img src="<%= item.url %>" alt="<%= item.name %>" class="rounded-circle" width="64">
+    <div class="row" style="margin-left: 10%;margin-right: 10%;">
+      <% for(const item of data){ %>
+      <div class="col-md-2">
+        <div class="card">
+          <img class="card-img-top" src="<%= item.url%>" alt="<%= item.name%>">
+          <div class="card-body">
+            <h5 class="card-title"><%= item.name%>"</h5>
           </div>
-          <div>
-            <%= item.name %>
-          </div>
-        </li>
-        <% } %>
-      </ul>
+        </div>
+      </div>
+        <% }%>
     </div>
     <!-- 引入 Bootstrap JS 文件 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -39,3 +41,4 @@
     <script src="https://cdn.staticfile.org/font-awesome/5.15.4/js/all.min.js"></script>
   </body>
 </html>
+ 
