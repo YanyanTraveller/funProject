@@ -10,10 +10,9 @@
   </head>
   <body>
     <div class="container">
-      <form class="form-inline">
+      <form class="form-inline" method="post" action="/page/search">
         <div class="form-group">
-          
-          <input type="text" class="form-control" id="searchInput" placeholder="请输入搜索内容" value="<%= query%>">
+          <input type="text" class="form-control" id="searchInput" name="searchInput" placeholder="请输入搜索内容" value="<%= query%>">
         </div>
         <button type="submit" class="btn btn-primary">搜索</button>
       </form>

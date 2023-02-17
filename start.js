@@ -1,8 +1,7 @@
-"use strict";
-
-const express = require("express");
-const cors = require("cors");
-const routes = require("./routes/routes");
+const express = require('express');
+const bodyParses = require('body-parser');
+const cors = require('cors');
+const routes = require('./routes/routes');
 
 const port = 3000;
 
@@ -11,7 +10,9 @@ app.set("view engine", "ejs");
 
 app.use(cors());
 
-app.use("/", routes);
+app.use(bodyParses.urlencoded({extended: false}));
+
+app.use('/', routes);
 
 app.get("/",(req,res)=>{
   res.sendFile(__dirname + "/index.html");
