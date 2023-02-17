@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My List</title>
+    <!-- 引入 Bootstrap 样式文件 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- 引入 Font Awesome 样式文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.15.4/css/all.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <form class="form-inline">
+        <div class="form-group">
+          
+          <input type="text" class="form-control" id="searchInput" placeholder="请输入搜索内容" value="<%= query%>">
+        </div>
+        <button type="submit" class="btn btn-primary">搜索</button>
+      </form>
+    </div>
+    
+    <div class="container mt-3">
+      <h1>Search Results</h1>
+      <ul class="list-group">
+        <% for (const item of data) { %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div class="me-3">
+            <img src="<%= item.url %>" alt="<%= item.name %>" class="rounded-circle" width="64">
+          </div>
+          <div>
+            <%= item.name %>
+          </div>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+    <!-- 引入 Bootstrap JS 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- 引入 Font Awesome JS 文件 -->
+    <script src="https://cdn.staticfile.org/font-awesome/5.15.4/js/all.min.js"></script>
+  </body>
+</html>
